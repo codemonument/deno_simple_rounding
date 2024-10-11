@@ -1,6 +1,6 @@
 # @codemonument/simple-rounding
 
-This module contains "mostly"(tm) relieable custom functions for rounding, ceiling, flooring, truncating and formatting floating point numbers.
+A deno module, containing "mostly"(tm) relieable custom functions for rounding, ceiling, flooring, truncating and formatting floating point numbers.
 
 ## Why?
 
