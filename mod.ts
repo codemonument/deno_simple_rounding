@@ -1,5 +1,5 @@
 /**
- * This file contains custom functions for rounding, ceiling, flooring, truncating and formatting floating point numbers.
+ * This module contains custom functions for rounding, ceiling, flooring, truncating and formatting floating point numbers.
  *
  * ## Why?
  *
@@ -22,7 +22,7 @@
  *   - BUT: only compatible with TS allowSyntheticDefaultImports: true + default import
  *
  * Second best solution: Use a custom implementation of roundToPrecision
- * tt-bj2 selected (on 2024-09-09):
+ * @bjesuiter selected (on 2024-09-09):
  * https://stackoverflow.com/questions/11832914/how-to-round-to-at-most-2-decimal-places-if-necessary#:~:text=Solution%202%3A%20purely%20mathematical%20(Number.EPSILON)
  *
  * @module
