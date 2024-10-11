@@ -1,8 +1,12 @@
 /**
+ * This file contains custom functions for rounding, ceiling, flooring, truncating and formatting floating point numbers.
+ *
+ * ## Why?
+ *
  * Basic Problem: JS Floating Point Math is highly inaccurate.
  * Found this thread: https://stackoverflow.com/questions/11832914/how-to-round-to-at-most-2-decimal-places-if-necessary
  *
- * Best solution: Use a library with correct implementation of floating point math.
+ * First best solution: Use a library with correct implementation of floating point math.
  *
  * - mathjs (CAUTION: not math.js!): https://www.npmjs.com/package/mathjs
  *   - is basically complete, but is FAT: 732 kB, 188 kB minified
@@ -20,6 +24,8 @@
  * Second best solution: Use a custom implementation of roundToPrecision
  * tt-bj2 selected (on 2024-09-09):
  * https://stackoverflow.com/questions/11832914/how-to-round-to-at-most-2-decimal-places-if-necessary#:~:text=Solution%202%3A%20purely%20mathematical%20(Number.EPSILON)
+ *
+ * @module
  */
 
 /**
@@ -30,6 +36,18 @@
  * @param value The floating point value to be rounded
  * @param precision The number of decimal places to round to
  * @returns The rounded number
+ *
+ * @example
+ * ```ts
+ *   import { assertEquals } from "@std/assert";
+ *   import { roundToPrecision } from "@codemonument/simple-rounding";
+ *
+ *   const result1 = roundToPrecision(55.3218697, 2);
+ *   assertEquals(result1, 55.32);
+ *
+ *   const result2 = roundToPrecision(55.3258697, 2);
+ *   assertEquals(result2, 55.33);
+ * ```
  */
 export function roundToPrecision(value: number, precision: number): number {
     const p = Math.pow(10, precision || 0);

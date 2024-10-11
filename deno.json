@@ -1,9 +1,7 @@
 {
 	"name": "@codemonument/simple-rounding",
 	"version": "0.1.0",
-	"exports": {
-		"./mod.ts": "./mod.ts"
-	},
+	"exports": "./mod.ts",
 	"tasks": {
 		"dev": "deno run --watch main.ts",
 		"dry": "deno publish --dry-run",
