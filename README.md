@@ -1,6 +1,6 @@
 # @codemonument/simple-rounding
 
-A tiny library which simply provides "kind of" relieable rounding of a js floating point number to n decimal points.
+This module contains "mostly"(tm) relieable custom functions for rounding, ceiling, flooring, truncating and formatting floating point numbers.
 
 ## Why?
 
