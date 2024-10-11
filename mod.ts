@@ -1,5 +1,5 @@
 /**
- * This module contains custom functions for rounding, ceiling, flooring, truncating and formatting floating point numbers.
+ * This module contains "mostly"(tm) relieable custom functions for rounding, ceiling, flooring, truncating and formatting floating point numbers.
  *
  * ## Why?
  *
@@ -24,6 +24,23 @@
  * Second best solution: Use a custom implementation of roundToPrecision
  * @bjesuiter selected (on 2024-09-09):
  * https://stackoverflow.com/questions/11832914/how-to-round-to-at-most-2-decimal-places-if-necessary#:~:text=Solution%202%3A%20purely%20mathematical%20(Number.EPSILON)
+ *
+ * @example
+ * ```ts
+ * import { assertEquals } from "@std/assert";
+ * import { roundToPrecision, ceilToPrecision, floorToPrecision, truncToPrecision, toFixed } from "@codemonument/simple-rounding";
+ *
+ * const testFloat = 55.3218697;
+ * const result1 = roundToPrecision(testFloat, 2);
+ * assertEquals(result1, 55.32);
+ * const result2 = ceilToPrecision(testFloat, 2);
+ * assertEquals(result2, 55.33);
+ * const result3 = floorToPrecision(testFloat, 2);
+ * assertEquals(result3, 55.32);
+ * const result4 = truncToPrecision(testFloat, 2);
+ * assertEquals(result4, 55.32);
+ * const result5 = toFixed(testFloat, 2);
+ * assertEquals(result5, "55.32");
  *
  * @module
  */
