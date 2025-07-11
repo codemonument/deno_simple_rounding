@@ -150,41 +150,41 @@ Deno.test("truncToPrecision", async (t) => {
 
 Deno.test("toFixed", async (t) => {
   await t.step("formats to 2 decimal places", () => {
-    assertEquals(roundToFixed(3.14159, 2), "3.14");
-    assertEquals(roundToFixed(3.145, 2), "3.15");
-    assertEquals(roundToFixed(3.0, 2), "3.00");
+    assertEquals(roundToFixed(3.14159, 2, 2), "3.14");
+    assertEquals(roundToFixed(3.145, 2, 2), "3.15");
+    assertEquals(roundToFixed(3.0, 2, 2), "3.00");
   });
 
   await t.step("formats to 0 decimal places", () => {
-    assertEquals(roundToFixed(3.6, 0), "4");
-    assertEquals(roundToFixed(3.4, 0), "3");
-    assertEquals(roundToFixed(3.0, 0), "3");
+    assertEquals(roundToFixed(3.6, 0, 0), "4");
+    assertEquals(roundToFixed(3.4, 0, 0), "3");
+    assertEquals(roundToFixed(3.0, 0, 0), "3");
   });
 
-  await t.step("formats to  decimal places", () => {
-    assertEquals(roundToFixed(3.6, 0), "4.00");
-    assertEquals(roundToFixed(3.4, 0), "3.00");
-    assertEquals(roundToFixed(3.0, 0), "3.00");
+  await t.step("formats to 2 decimal places", () => {
+    assertEquals(roundToFixed(3.6, 0, 2), "4.00");
+    assertEquals(roundToFixed(3.4, 0, 2), "3.00");
+    assertEquals(roundToFixed(3.0, 0, 2), "3.00");
   });
 
   await t.step("formats negative numbers", () => {
-    assertEquals(roundToFixed(-3.14159, 2), "-3.14");
-    assertEquals(roundToFixed(-3.145, 2), "-3.14");
+    assertEquals(roundToFixed(-3.14159, 2, 2), "-3.14");
+    assertEquals(roundToFixed(-3.145, 2, 2), "-3.14");
   });
 
   await t.step("formats zero", () => {
-    assertEquals(roundToFixed(0, 2), "0.00");
-    assertEquals(roundToFixed(0, 0), "0");
+    assertEquals(roundToFixed(0, 2, 2), "0.00");
+    assertEquals(roundToFixed(0, 0, 0), "0");
   });
 
   await t.step("formats floating point precision issues", () => {
-    assertEquals(roundToFixed(0.1 + 0.2, 1), "0.3");
-    assertEquals(roundToFixed(0.1 + 0.2, 2), "0.30");
+    assertEquals(roundToFixed(0.1 + 0.2, 1, 1), "0.3");
+    assertEquals(roundToFixed(0.1 + 0.2, 2, 2), "0.30");
   });
 
   await t.step("formats large numbers", () => {
-    assertEquals(roundToFixed(123456.789, 2), "123456.79");
-    assertEquals(roundToFixed(123456.789, 0), "123457");
+    assertEquals(roundToFixed(123456.789, 2, 2), "123456.79");
+    assertEquals(roundToFixed(123456.789, 0, 0), "123457");
   });
 });
 
@@ -195,8 +195,8 @@ Deno.test("edge cases and floating point precision", async (t) => {
     assertEquals(roundToPrecision(0.1 + 0.2, 2), 0.3);
     assertEquals(roundToPrecision(0.1 + 0.2, 16), 0.3000000000000001);
 
-    assertEquals(roundToFixed(0.1 + 0.2, 1), "0.3");
-    assertEquals(roundToFixed(0.1 + 0.2, 2), "0.30");
+    assertEquals(roundToFixed(0.1 + 0.2, 1, 1), "0.3");
+    assertEquals(roundToFixed(0.1 + 0.2, 2, 2), "0.30");
   });
 
   await t.step("handles very small numbers", () => {

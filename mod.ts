@@ -133,6 +133,10 @@ export function truncToPrecision(value: number, precision: number): number {
  * @param precision - The number of decimal places to format to.
  * @returns The formatted number.
  */
-export function roundToFixed(value: number, precision: number): string {
-  return roundToPrecision(value, precision).toFixed(precision);
+export function roundToFixed(
+  value: number,
+  precision: number,
+  displayPrecision: number,
+): string {
+  return roundToPrecision(value, precision).toFixed(displayPrecision);
 }
