@@ -52,14 +52,23 @@ export function roundToPrecision(value: number, precision: number): number {
  * Decimal ceil
  *
  * Ceils a number to a given precision.
- * Rounds up to the nearest integer for the last place respecting the precision.
+ * Rounds "up" to the nearest integer for the last place respecting the precision.
+ * Note: Ceiling a negative number rounds it "up" towards zero, because this is the bigger number!
+ * e.g. ceilToPrecision(-3.9, 0) // -3
  *
- * Examples:
- * - ceilToPrecision(3.14159, 2) = 3.15
- * - ceilToPrecision(3.145, 2) = 3.15
- * - ceilToPrecision(-3.4, 0) = -3
- * - ceilToPrecision(-3.45, 1) = -3.4
- * - ceilToPrecision(-3.55, 1) = -3.5
+ * ```ts
+ * ceilToPrecision(3.14159, 2) // 3.15
+ * ceilToPrecision(3.141, 2) // 3.15
+ * ceilToPrecision(3.145, 2) // 3.15
+ * ceilToPrecision(3.001, 2) // 3.01
+ * ceilToPrecision(-3.4, 0) // -3
+ * ceilToPrecision(-3.5, 0) // -3
+ * ceilToPrecision(-3.9, 0) // -3
+ * ceilToPrecision(-3.45, 1) // -3.4
+ * ceilToPrecision(-3.55, 1) // -3.5
+ * ```
+ *
+ * @example
  * @param value - The number to round.
  * @param precision - The number of decimal places to round to.
  * @returns The rounded number.

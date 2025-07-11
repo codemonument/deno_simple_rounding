@@ -55,7 +55,8 @@ Deno.test("roundToPrecision", async (t) => {
 Deno.test("ceilToPrecision", async (t) => {
   await t.step("ceils to 2 decimal places", () => {
     assertEquals(ceilToPrecision(3.14159, 2), 3.15);
-    assertEquals(ceilToPrecision(3.14, 2), 3.14);
+    assertEquals(ceilToPrecision(3.140, 2), 3.14);
+    assertEquals(ceilToPrecision(3.143, 2), 3.15);
     assertEquals(ceilToPrecision(3.001, 2), 3.01);
   });
 
