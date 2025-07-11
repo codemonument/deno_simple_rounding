@@ -1,6 +1,8 @@
 # @codemonument/simple-rounding
 
-A deno module, containing "mostly"(tm) relieable custom functions for rounding, ceiling, flooring, truncating and formatting floating point numbers.
+[![JSR](https://jsr.io/badges/@codemonument/simple-rounding)](https://jsr.io/package/@codemonument/simple-rounding)
+
+A deno module, containing relieable custom functions for rounding, ceiling, flooring, truncating and formatting floating point numbers.
 
 ## Why?
 
