@@ -25,8 +25,21 @@ First best solution: Use a library with correct implementation of floating point
   - BUT: only compatible with TS allowSyntheticDefaultImports: true + default import
 
 Second best solution: Use a custom implementation of roundToPrecision  
-@bjesuiter selected (on 2024-09-09):  
+@bjesuiter original selected implementation (on 2024-09-09):  
 https://stackoverflow.com/questions/11832914/how-to-round-to-at-most-2-decimal-places-if-necessary#:~:text=Solution%202%3A%20purely%20mathematical%20(Number.EPSILON)
+
+2025-07-11: refined multiple times 
+
+---
+# Changelog 
+
+## 2.0.0 - 2025-07-11
+
+- reworked the whole implementation and added more tests and examples
+
+## 1.0.0 
+
+Initial release
 
 ---
 
