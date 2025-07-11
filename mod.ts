@@ -84,6 +84,19 @@ export function ceilToPrecision(value: number, precision: number): number {
  * Floors a number to a given precision.
  * Rounds down to the nearest integer for the last place respecting the precision.
  *
+ * CAUTION: Flooring negative numbers makes the digits look bigger, but in negative land
+ * bigger digits mean smaller number!
+ *
+ * ```ts
+ * floorToPrecision(3.14159, 2) // 3.14
+ * floorToPrecision(3.141, 2) // 3.14
+ * floorToPrecision(3.145, 2) // 3.14
+ * floorToPrecision(3.001, 2) // 3.00
+ * floorToPrecision(-3.4, 0) // -4
+ * floorToPrecision(-3.5, 0) // -4
+ * floorToPrecision(-3.9, 0) // -4
+ * ```
+ *
  * @param value - The number to round.
  * @param precision - The number of decimal places to round to.
  * @returns The rounded number.

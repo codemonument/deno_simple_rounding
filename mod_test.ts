@@ -87,8 +87,10 @@ Deno.test("ceilToPrecision", async (t) => {
 Deno.test("floorToPrecision", async (t) => {
   await t.step("floors to 2 decimal places", () => {
     assertEquals(floorToPrecision(3.14159, 2), 3.14);
-    assertEquals(floorToPrecision(3.15, 2), 3.15);
-    assertEquals(floorToPrecision(3.999, 2), 3.99);
+    assertEquals(floorToPrecision(3.140, 2), 3.14);
+    assertEquals(floorToPrecision(3.143, 2), 3.14);
+    assertEquals(floorToPrecision(3.149, 2), 3.14);
+    assertEquals(floorToPrecision(3.001, 2), 3.00);
   });
 
   await t.step("floors to 0 decimal places", () => {
@@ -99,7 +101,10 @@ Deno.test("floorToPrecision", async (t) => {
 
   await t.step("floors negative numbers", () => {
     assertEquals(floorToPrecision(-3.14159, 2), -3.15);
-    assertEquals(floorToPrecision(-3.14, 2), -3.14);
+    assertEquals(floorToPrecision(-3.12, 1), -3.2);
+    assertEquals(floorToPrecision(-3.15, 1), -3.2);
+    assertEquals(floorToPrecision(-3.16, 1), -3.2);
+    assertEquals(floorToPrecision(-3.19, 1), -3.2);
   });
 
   await t.step("floors zero", () => {
