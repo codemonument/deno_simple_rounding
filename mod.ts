@@ -1,4 +1,6 @@
 /**
+ * @fileoverview A deno module, containing reliable custom functions for rounding, ceiling, flooring, truncating and formatting floating point numbers.
+ * 
  * Basic Problem: JS Floating Point Math is highly inaccurate.
  * Found this thread: https://stackoverflow.com/questions/11832914/how-to-round-to-at-most-2-decimal-places-if-necessary
  *
@@ -20,6 +22,8 @@
  * Second best solution: Use a custom implementation of roundToPrecision
  * bjesuiter selected (on 2024-09-09):
  * https://stackoverflow.com/questions/11832914/how-to-round-to-at-most-2-decimal-places-if-necessary#:~:text=Solution%202%3A%20purely%20mathematical%20(Number.EPSILON)
+ * 
+ * @module
  */
 
 /**
@@ -32,12 +36,16 @@
  * CAUTION: Math.round() rounds positive .5 numbers up to the next integer,
  * but rounds negative .5 numbers down to the next integer.
  *
- * Examples:
- * - roundToPrecision(3.14159, 2) = 3.14
- * - roundToPrecision(3.145, 2) = 3.15
- * - roundToPrecision(-3.4, 0) = -3
- * - roundToPrecision(-3.45, 1) = -3.5
- * - roundToPrecision(-3.55, 1) = -3.5
+ * @example
+ * ```ts
+ * import { roundToPrecision } from "@codemonument/simple-rounding";
+ * 
+ * roundToPrecision(3.14159, 2); // 3.14
+ * roundToPrecision(3.145, 2);   // 3.15
+ * roundToPrecision(-3.4, 0);    // -3
+ * roundToPrecision(-3.45, 1);   // -3.5
+ * roundToPrecision(-3.55, 1);   // -3.5
+ * ```
  *
  * @param value - The number to round.
  * @param precision - The number of decimal places to round to.
@@ -54,21 +62,22 @@ export function roundToPrecision(value: number, precision: number): number {
  * Ceils a number to a given precision.
  * Rounds "up" to the nearest integer for the last place respecting the precision.
  * Note: Ceiling a negative number rounds it "up" towards zero, because this is the bigger number!
- * e.g. ceilToPrecision(-3.9, 0) // -3
- *
- * ```ts
- * ceilToPrecision(3.14159, 2) // 3.15
- * ceilToPrecision(3.141, 2) // 3.15
- * ceilToPrecision(3.145, 2) // 3.15
- * ceilToPrecision(3.001, 2) // 3.01
- * ceilToPrecision(-3.4, 0) // -3
- * ceilToPrecision(-3.5, 0) // -3
- * ceilToPrecision(-3.9, 0) // -3
- * ceilToPrecision(-3.45, 1) // -3.4
- * ceilToPrecision(-3.55, 1) // -3.5
- * ```
  *
  * @example
+ * ```ts
+ * import { ceilToPrecision } from "@codemonument/simple-rounding";
+ * 
+ * ceilToPrecision(3.14159, 2); // 3.15
+ * ceilToPrecision(3.141, 2);   // 3.15
+ * ceilToPrecision(3.145, 2);   // 3.15
+ * ceilToPrecision(3.001, 2);   // 3.01
+ * ceilToPrecision(-3.4, 0);    // -3
+ * ceilToPrecision(-3.5, 0);    // -3
+ * ceilToPrecision(-3.9, 0);    // -3
+ * ceilToPrecision(-3.45, 1);   // -3.4
+ * ceilToPrecision(-3.55, 1);   // -3.5
+ * ```
+ *
  * @param value - The number to round.
  * @param precision - The number of decimal places to round to.
  * @returns The rounded number.
@@ -87,14 +96,17 @@ export function ceilToPrecision(value: number, precision: number): number {
  * CAUTION: Flooring negative numbers makes the digits look bigger, but in negative land
  * bigger digits mean smaller number!
  *
+ * @example
  * ```ts
- * floorToPrecision(3.14159, 2) // 3.14
- * floorToPrecision(3.141, 2) // 3.14
- * floorToPrecision(3.145, 2) // 3.14
- * floorToPrecision(3.001, 2) // 3.00
- * floorToPrecision(-3.4, 0) // -4
- * floorToPrecision(-3.5, 0) // -4
- * floorToPrecision(-3.9, 0) // -4
+ * import { floorToPrecision } from "@codemonument/simple-rounding";
+ * 
+ * floorToPrecision(3.14159, 2); // 3.14
+ * floorToPrecision(3.141, 2);   // 3.14
+ * floorToPrecision(3.145, 2);   // 3.14
+ * floorToPrecision(3.001, 2);   // 3.00
+ * floorToPrecision(-3.4, 0);    // -4
+ * floorToPrecision(-3.5, 0);    // -4
+ * floorToPrecision(-3.9, 0);    // -4
  * ```
  *
  * @param value - The number to round.
@@ -110,7 +122,17 @@ export function floorToPrecision(value: number, precision: number): number {
  * Decimal trunc
  *
  * Truncates a number to a given precision.
- * Rounds to the nearest integer for the last place respecting the precision.
+ * Rounds towards zero to the nearest integer for the last place respecting the precision.
+ *
+ * @example
+ * ```ts
+ * import { truncToPrecision } from "@codemonument/simple-rounding";
+ * 
+ * truncToPrecision(3.14159, 2);  // 3.14
+ * truncToPrecision(3.19, 1);     // 3.1
+ * truncToPrecision(-3.14159, 2); // -3.14
+ * truncToPrecision(-3.19, 1);    // -3.1
+ * ```
  *
  * @param value - The number to round.
  * @param precision - The number of decimal places to round to.
@@ -127,11 +149,21 @@ export function truncToPrecision(value: number, precision: number): number {
 /**
  * Format using fixed-point notation
  *
- * Formats a number to a given precision.
+ * Rounds a number to a given precision and formats it with a specific number of decimal places.
+ *
+ * @example
+ * ```ts
+ * import { roundToFixed } from "@codemonument/simple-rounding";
+ * 
+ * roundToFixed(3.14159, 2, 2); // "3.14"
+ * roundToFixed(3.1, 2, 2);     // "3.10"
+ * roundToFixed(3.1, 2, 4);     // "3.1000"
+ * ```
  *
  * @param value - The number to format.
- * @param precision - The number of decimal places to format to.
- * @returns The formatted number.
+ * @param precision - The number of decimal places to round to.
+ * @param displayPrecision - The number of decimal places to display.
+ * @returns The formatted number as a string.
  */
 export function roundToFixed(
   value: number,

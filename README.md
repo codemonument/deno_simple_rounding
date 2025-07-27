@@ -2,7 +2,9 @@
 
 [![JSR](https://jsr.io/badges/@codemonument/simple-rounding)](https://jsr.io/package/@codemonument/simple-rounding)
 
-A deno module, containing relieable custom functions for rounding, ceiling, flooring, truncating and formatting floating point numbers.
+A TypeScript/JavaScript module containing reliable custom functions for rounding, ceiling, flooring, truncating and formatting floating point numbers. Works with Deno, Node.js, Bun, and browsers.
+
+**Keywords:** rounding, floating-point, precision, math, decimal, ceiling, floor, truncate, typescript, javascript, deno, node, bun
 
 ## Why?
 
