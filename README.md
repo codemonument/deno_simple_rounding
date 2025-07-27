@@ -4,7 +4,7 @@
 
 A TypeScript/JavaScript module containing reliable custom functions for rounding, ceiling, flooring, truncating and formatting floating point numbers. Works with Deno, Node.js, Bun, and browsers.
 
-**Keywords:** rounding, floating-point, precision, math, decimal, ceiling, floor, truncate, typescript, javascript, deno, node
+**Keywords:** rounding, floating-point, precision, math, decimal, ceiling, floor, truncate, typescript, javascript, deno, node, bun
 
 ## Why?
 
