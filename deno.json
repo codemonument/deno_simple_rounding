@@ -18,7 +18,6 @@
 	"publish": {
 		"include": [
 			"mod.ts",
-			"mod_test.ts",
 			"README.md",
 			"LICENSE",
 			"deno.json"
