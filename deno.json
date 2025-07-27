@@ -1,6 +1,6 @@
 {
 	"name": "@codemonument/simple-rounding",
-	"version": "2.0.0",
+	"version": "2.0.1",
 	"description": "Reliable custom functions for rounding, ceiling, flooring, truncating and formatting floating point numbers",
 	"license": "MIT",
 	"exports": "./mod.ts",

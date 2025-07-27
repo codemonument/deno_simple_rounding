@@ -37,6 +37,10 @@ https://stackoverflow.com/questions/11832914/how-to-round-to-at-most-2-decimal-p
 ---
 # Changelog 
 
+## 2.0.1 - 2025-07-27
+
+- refined examples and published files
+
 ## 2.0.0 - 2025-07-11
 
 - reworked the whole implementation and added more tests and examples
